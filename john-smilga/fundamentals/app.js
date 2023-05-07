@@ -1,12 +1,10 @@
-// manual approach ( create package.json in the root, create properties etc)
-// npm init ( step by step, press enter to skip)
-// npm init -y ( everything default)
+const http = require("http");
 
-const _ = require("lodash");
+const server = http.createServer((req, res) => {
+  console.log("request event");
+  res.end("Hello World");
+});
 
-const items = [1, [2, [3, [4, [5, [6]]]]]];
-
-const newItems = _.flattenDeep(items);
-console.log(newItems);
-
-console.log(`Hello People`);
+server.listen(5000, () => {
+  console.log("Server listening on port : 5000....");
+});
