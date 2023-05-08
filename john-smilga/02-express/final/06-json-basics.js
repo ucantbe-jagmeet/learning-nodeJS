@@ -3,7 +3,7 @@
 
 const express = require("express");
 const app = express();
-const { products } = require("./data");
+const { products } = require("../data");
 
 app.get("/", (req, res) => {
   // res.status(500).json([
