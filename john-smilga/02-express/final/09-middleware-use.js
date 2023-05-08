@@ -2,7 +2,7 @@
 
 const express = require("express");
 const app = express();
-const logger = require("./logger");
+const logger = require("../logger");
 // req => middleware => res
 
 // app.use("/api", logger); -> this will apply to both products and items
