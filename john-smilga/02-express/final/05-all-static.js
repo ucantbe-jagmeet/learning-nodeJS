@@ -5,12 +5,10 @@ const app = express();
 //setup static and middleware
 app.use(express.static("./public"));
 
-// app.get("/", (req, res) => {
-//   // res.send("HII there");
-//   res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"));
-//   adding to static assets
-//   SSR
-// });
+app.get("/", (req, res) => {
+  // res.send("HII there");
+  res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"));
+});
 
 app.all("*", (req, res) => {
   res.status(400).send("Resource Not Found");
