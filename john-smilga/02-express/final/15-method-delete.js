@@ -1,7 +1,7 @@
 // METHODS
 const express = require("express");
 const app = express();
-let { people } = require("./data");
+let { people } = require("../data");
 
 // get -> read the data
 // post -> Insert the data
