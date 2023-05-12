@@ -22,10 +22,11 @@ const login = async (req, res) => {
 };
 
 const dashboard = async (req, res) => {
+  console.log(req.headers);
   const luckyNumber = Math.floor(Math.random() * 99);
   res.status(200).json({
     msg: `Hello,  User`,
-    secret: `Here is your authorized data, your lucky number is${luckyNumber} `,
+    secret: `Here is your authorized data, your lucky number is ${luckyNumber} `,
   });
 };
 
