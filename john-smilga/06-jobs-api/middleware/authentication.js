@@ -17,6 +17,7 @@ const auth = (req, res, next) => {
     // attach the user to the job routes
 
     req.user = { userId: payload.userId, name: payload.name };
+    next();
   } catch (error) {
     throw new UnauthenticatedError("Authentication invalid");
   }
