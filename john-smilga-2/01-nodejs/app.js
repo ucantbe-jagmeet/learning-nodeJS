@@ -1,27 +1,24 @@
-/*
-    const http = require("http");
+// const http = require("http");
 
-    const server = http.createServer((req, res) => {
-    if (req.url === "/") {
-        res.end("Home Page");
-    }
-    if (req.url === "/about") {
-        // blocking code
-        for (let i = 0; i < 1000; i++) {
-        for (let j = 0; j < 1000; j++) {
-            console.log(`${i} ${j}`);
-        }
-        }
-        res.end("About Page");
-    }
-    res.end("Error Page");
-    });
+// const server = http.createServer((req, res) => {
+//   if (req.url === "/") {
+//     res.end("Home Page");
+//   }
+//   if (req.url === "/about") {
+//     // blocking code
+//     for (let i = 0; i < 1000; i++) {
+//       for (let j = 0; j < 1000; j++) {
+//         console.log(`${i} ${j}`);
+//       }
+//     }
+//     res.end("About Page");
+//   }
+//   res.end("Error Page");
+// });
 
-    server.listen(5000, () => {
-    console.log("server is listening on port 5000 ...");
-    });
-
-*/
+// server.listen(5000, () => {
+//   console.log("server is listening on port 5000 ...");
+// });
 
 const { readFile } = require("fs");
 
@@ -37,6 +34,18 @@ const getText = (path) => {
   });
 };
 
-getText("./content/first.txt")
-  .then((result) => console.log(result))
-  .catch((err) => console.log(err));
+// getText("./content/first.txt")
+//   .then((result) => console.log(result))
+//   .catch((err) => console.log(err));
+
+const start = async () => {
+  try {
+    const first = await getText("./content/first.txt");
+    const second = await getText("./content/second.txt");
+    console.log(first, second);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start();
