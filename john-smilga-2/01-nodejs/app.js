@@ -1,48 +1,21 @@
-const { readFile, writeFile } = require("fs");
 const http = require("http");
 
-/*
-
-
-console.log("Started a first task");
-// Check file path
-
-readFile("./content/first.txt", "utf8", (err, result) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-    
-    console.log(result);
-    console.log("compiled first task");
-});
-
-console.log("Starting next task");
-
-*/
-
-/*
-    console.log("first");
-    setTimeout(() => {
-        console.log("Second");
-    }, 0);
-
-    console.log("Third");
-*/
-
-/*
-
-    setInterval(() => {
-    console.log("hello World");
-    }, 2000);
-    console.log("I will run first");
-
- */
 const server = http.createServer((req, res) => {
-  console.log("request event");
-  res.end("hello world");
+  if (req.url === "/") {
+    res.end("Home Page");
+  }
+  if (req.url === "/about") {
+    // blocking code
+    for (let i = 0; i < 1000; i++) {
+      for (let j = 0; j < 1000; j++) {
+        console.log(`${i} ${j}`);
+      }
+    }
+    res.end("About Page");
+  }
+  res.end("Error Page");
 });
 
 server.listen(5000, () => {
-  console.log("Server is listening on port 5000");
+  console.log("server is listening on port 5000 ...");
 });
