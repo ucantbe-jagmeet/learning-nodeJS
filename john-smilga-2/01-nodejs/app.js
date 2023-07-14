@@ -20,9 +20,16 @@ console.log("Starting next task");
 
 */
 
-console.log("first");
-setTimeout(() => {
-  console.log("Second");
-}, 0);
+/*
+    console.log("first");
+    setTimeout(() => {
+        console.log("Second");
+    }, 0);
 
-console.log("Third");
+    console.log("Third");
+*/
+
+setInterval(() => {
+  console.log("hello World");
+}, 2000);
+console.log("I will run first");
