@@ -2,10 +2,13 @@ const express = require("express");
 const app = express();
 const logger = require("./logger");
 const authorize = require("./authorize");
-// req => middleware => res
+const morgan = require("morgan");
 
+// req => middleware => res
 // app.use(logger);
-app.use([logger, authorize]);
+// app.use([logger, authorize]);
+// app.use(express.static("./public"));
+app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
   res.send("Home");
