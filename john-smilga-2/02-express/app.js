@@ -1,32 +1,9 @@
 const express = require("express");
 const app = express();
-const logger = require("./logger");
-const authorize = require("./authorize");
-const morgan = require("morgan");
+const { people } = require("./data");
 
-// req => middleware => res
-// app.use(logger);
-// app.use([logger, authorize]);
-// app.use(express.static("./public"));
-app.use(morgan("tiny"));
-
-app.get("/", (req, res) => {
-  res.send("Home");
-});
-
-app.get("/about", (req, res) => {
-  res.send("About");
-});
-
-// app.use(logger);
-
-app.get("/api/products", (req, res) => {
-  res.send("products");
-});
-
-app.get("/api/items", (req, res) => {
-  console.log(req.user);
-  res.send("items");
+app.get("/api/people", (req, res) => {
+  res.status(200).json({ success: true, data: people });
 });
 
 app.listen(5000, () => {
