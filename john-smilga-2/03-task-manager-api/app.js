@@ -3,7 +3,6 @@ const app = express();
 const tasks = require("./routes/task");
 const connectDB = require("./db/connect");
 const notFound = require("./middleware/not-found");
-const notFound = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
 require("dotenv").config();
