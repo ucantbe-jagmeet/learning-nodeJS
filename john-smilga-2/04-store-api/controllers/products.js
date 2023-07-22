@@ -7,10 +7,13 @@ const getAllProductsStatic = async (req, res) => {
   res.status(200).json({ products });
 };
 const getAllProducts = async (req, res) => {
-  const { featured } = req.query;
+  const { featured, company } = req.query;
   const queryObject = {};
   if (featured) {
     queryObject.featured = featured === "true" ? true : false;
+  }
+  if (featured) {
+    queryObject.company = company;
   }
 
   const products = await Product.find(queryObject);
