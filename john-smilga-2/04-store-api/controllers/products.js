@@ -7,8 +7,13 @@ const getAllProductsStatic = async (req, res) => {
   res.status(200).json({ products });
 };
 const getAllProducts = async (req, res) => {
-  console.log(req.query);
-  const products = await Product.find(req.query);
+  const { featured } = req.query;
+  const queryObject = {};
+  if (featured) {
+    queryObject.featured = featured === "true" ? true : false;
+  }
+
+  const products = await Product.find(queryObject);
   res.status(200).json({ products, nbHits: products.length });
 };
 
