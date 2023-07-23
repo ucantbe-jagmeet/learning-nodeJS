@@ -29,4 +29,10 @@ UserSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
+UserSchema.methods.createJWT = function () {
+  return jwt.sign({ userId: user._id, name: user.name }, "jwtSecret", {
+    expiresIn: "30d",
+  });
+};
+
 module.exports = mongoose.model("User", UserSchema);
