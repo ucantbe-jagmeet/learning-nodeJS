@@ -7,6 +7,7 @@ const app = express();
 //rest of the packagess
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+
 //database
 const connectDB = require("./db/connect");
 
